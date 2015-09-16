@@ -2,7 +2,7 @@
 Files for building the Guild Jupyter notebook Docker container and deploying the container on AWS. 
 
 ### Deployment Instructions
-The following instructions are for OSX/*nix systems.  
+The following instructions are for OSX/Linux systems.  
 
 1. Clone this repository.  
 2. On your local machine, install Docker and Docker Machine https://docs.docker.com/machine/install-machine/  

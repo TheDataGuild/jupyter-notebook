@@ -12,6 +12,7 @@ The following instructions are for OSX/*nix systems.
    * export AWS_INSTANCE_TYPE=\<instance type - ex: c3.8xlarge\>  
    * export AWS_DEFAULT_REGION=\<AWS region - ex: us-west-2\>  
    * export AWS_SECURITY_GROUP=docker-machine  
+   * export AWS_EBS_VOL=\<EBS volume ID\>  
    * alias dm=docker-machine  
    * alias dm-create-aws="dm create --driver amazonec2 \  
                                --amazonec2-access-key $AWS_ACCESS_KEY_ID \  
@@ -22,6 +23,12 @@ The following instructions are for OSX/*nix systems.
                                --amazonec2-security-group $AWS_SECURITY_GROUP"
    * dm-env() {  
          eval "$(docker-machine env $1)"  
+     }  
+   * dm-nb-tunnel() {  
+         autossh -M 8889 -f -i ~/.docker/machine/machines/$1/id_rsa -N -L 8888:localhost:8888 ubuntu@$(docker-machine ip $1)  
+     }  
+   * docker-nb() {  
+         docker run -d -p 8888:8888 -e "PASSWORD=$1" -v /data:/notebooks guild-env  
      }  
 3. Through the AWS console, define the AWS security group "docker-machine"  
 4. Create an AWS instance

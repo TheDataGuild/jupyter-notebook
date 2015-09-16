@@ -4,8 +4,9 @@ Files for building the Guild Jupyter notebook Docker container and deploying the
 ### Deployment Instructions
 The following instructions are for OSX/*nix systems.  
 
-1. On your local machine, install Docker and Docker Machine https://docs.docker.com/machine/install-machine/  
-2. On your local machine, define the following environment variables and aliases:  
+1. Clone this repository.  
+2. On your local machine, install Docker and Docker Machine https://docs.docker.com/machine/install-machine/  
+3. On your local machine, define the following environment variables and aliases:  
    * export AWS_ACCESS_KEY_ID=\<access key ID\>  
    * export AWS_SECRET_ACCESS_KEY=\<secret access key\>  
    * export AWS_VPC_ID=\<VPC ID\>  
@@ -28,11 +29,12 @@ The following instructions are for OSX/*nix systems.
          autossh -M 8889 -f -i ~/.docker/machine/machines/$1/id_rsa -N -L 8888:localhost:8888 ubuntu@$(docker-machine ip $1)  
      }  
    * docker-nb() {  
-         docker run -d -p 8888:8888 -e "PASSWORD=$1" -v /data:/notebooks guild-env  
+         docker run -d -p 8888:8888 -e "PASSWORD=$1" -v /data:/notebooks jupyter-notebook-py  
      }  
-3. Through the AWS console, define the AWS security group "docker-machine"  
-4. Create an AWS instance
+4. Through the AWS console, define the AWS security group "docker-machine"
+   * SSH inbound, All traffic outbound
+5. Create an AWS instance
    * Run 'dm-create-aws \<instance name\>' on your local machine to launch a VM on AWS  
    * Run 'dm-env \<instance name\>' on your local machine to configure the environment variables in your shell enabling access to the VM  
-5. Build the Docker container  
+6. Build the Docker container  
    * Run 'docker build -t jupyter-notebook-py .' on your local machine in the container subdirectory within the cloned repository  

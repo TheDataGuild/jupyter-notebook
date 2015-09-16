@@ -10,7 +10,15 @@ The following instructions are for OSX/*nix systems.
 4. Through the AWS console, define the AWS security group "docker-machine"
    * SSH inbound, All traffic outbound
 5. Create an AWS instance
-   * Run 'dm-create-aws \<instance name\>' on your local machine to launch a VM on AWS  
-   * Run 'dm-env \<instance name\>' on your local machine to configure the environment variables in your shell enabling access to the VM  
+   * Run 'source configure_ec2_instance.sh \<instance name\>' on your local machine to launch a VM on AWS  
 6. Build the Docker container  
    * Run 'docker build -t jupyter-notebook-py .' on your local machine in the container subdirectory within the cloned repository  
+7. Attach the EBS volume to the VM  
+   * Run 'docker-machine ssh \<instance name\>' to SSH into the VM  
+   * Run 'source mount_ebs_vol.sh' on the VM to mount the EBS volume   
+   * Logout of the VM  
+8. Run the notebook container  
+   * Run 'docker-nb \<notebook password\>' on your local machine  
+9. Establish the SSH tunnel to the VM  
+   * Install autossh http://linux.die.net/man/1/autossh. Available through macports for OSX.  
+   * Run 'dm-nb-tunnel \<instance name\>' to establish the tunnel. The tunnel will automatically restart as you disconnect and reconnect to networks.  

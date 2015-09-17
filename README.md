@@ -4,7 +4,7 @@ Files for building the Guild Jupyter notebook Docker container and deploying the
 ### Deployment Instructions
 The following instructions are for OSX/Linux systems.  
 
-1. Clone this repository.  
+1. Clone this repository  
 2. On your local machine, install Docker and Docker Machine https://docs.docker.com/machine/install-machine/  
 3. On your local machine, define the environment variables and aliases that are listed in the file env_variables_and_aliases
 4. Through the AWS console, define the AWS security group "docker-machine"

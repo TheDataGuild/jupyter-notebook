@@ -21,7 +21,7 @@ The following instructions are for OSX/Linux systems.
    * Run 'docker-nb \<notebook password\>' on your local machine  
 9. Establish the SSH tunnel to the VM  
    * Install autossh http://linux.die.net/man/1/autossh. Available through macports for OSX.  
-   * Run 'dm-nb-tunnel \<instance name\>' to establish the tunnel. The tunnel will automatically restart as you disconnect and reconnect to networks.  
+   * Run 'dm-nb-tunnel \<instance name\>' to establish the tunnel. The tunnel will automatically restart as you disconnect and reconnect your local machine to networks.  
 
 ### Helpful Commands  
 dm:                         Command list for docker-machine  

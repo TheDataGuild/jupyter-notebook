@@ -6,7 +6,13 @@ The following instructions are for OSX/Linux systems.
 
 1. Clone this repository  
 2. On your local machine, install Docker and Docker Machine https://docs.docker.com/machine/install-machine/  
-3. On your local machine, define the environment variables and aliases that are listed in the file env_variables_and_aliases
+3. Make a copy of env_variables_and_aliases.template:
+
+   ```
+   cp env_variables_and_aliases.template env_variables_and_aliases
+   ```
+   and edit env_variables_and_aliases to define the environment variables and aliases
+
 4. Through the AWS console, define the AWS security group "docker-machine"
    * SSH inbound, All traffic outbound
 5. Create an AWS instance

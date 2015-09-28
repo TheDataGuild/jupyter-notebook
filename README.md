@@ -11,9 +11,8 @@ The following instructions are for OSX/Linux systems.
    ```
    cp env_variables_and_aliases.template env_variables_and_aliases
    ```
-   and edit env_variables_and_aliases to define the environment variables and aliases. Source this file in your local shell. 
-
-4. Through the AWS console, define the AWS security group "docker-machine"
+   and edit env_variables_and_aliases to define the environment variables and aliases. Source this file in your local shell.  
+4. Through the AWS console, define the AWS security group "docker-machine"  
    * SSH inbound, All traffic outbound
 5. Create an AWS instance
    * Run ```source configure_ec2_instance.sh \<instance name\>``` on your local machine to launch a VM on AWS  

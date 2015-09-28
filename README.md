@@ -6,8 +6,7 @@ The following instructions are for OSX/Linux systems.
 
 1. Clone this repository  
 2. On your local machine, install Docker and Docker Machine https://docs.docker.com/machine/install-machine/  
-3. Make a copy of env_variables_and_aliases.template
-
+3. Make a copy of env_variables_and_aliases.template  
    ```
    cp env_variables_and_aliases.template env_variables_and_aliases
    ```

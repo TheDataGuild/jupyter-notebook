@@ -12,6 +12,7 @@ docker-machine scp credentials $1:credentials
 docker-machine scp config $1:config
 docker-machine scp final_config.sh $1:final_config.sh
 docker-machine ssh $1 "source final_config.sh $AWS_EBS_VOL"
-docker-machine scp mount_ebs_vol.sh $1:mount_ebs_vol.sh
+docker-machine scp config_ebs_vol.sh $1:config_ebs_vol.sh
+docker-machine scp -r ipython_config/ $1:ipython_config/
 rm credentials
 rm config

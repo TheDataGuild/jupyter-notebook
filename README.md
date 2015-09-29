@@ -19,7 +19,7 @@ The following instructions are for OSX/Linux systems.
    * Run ```docker build -t jupyter-notebook-py .``` on your local machine in the container subdirectory within the cloned repository  
 7. Attach the EBS volume to the VM  
    * Run ```docker-machine ssh \<instance name\>``` to SSH into the VM  
-   * Run ```source mount_ebs_vol.sh``` on the VM to mount the EBS volume   
+   * Run ```source config_ebs_vol.sh``` on the VM to mount the EBS volume   
    * Logout of the VM  
 8. Run the notebook container  
    * Run ```docker-nb \<notebook password\>``` on your local machine  

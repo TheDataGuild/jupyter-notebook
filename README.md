@@ -23,7 +23,11 @@ The following instructions are for OSX/Linux systems.
    * Logout of the VM  
 8. Run the notebook container  
    * Run ```docker-nb \<notebook password\>``` on your local machine  
-9. Establish the SSH tunnel to the VM  
+9. Configure Jupyter notebook extensions
+   * Run ```docker-nb-ssh``` to SSH into the running container  
+   * Run ```source ipython_config/ipy_final_config.sh``` to configure the extensions  
+   * Logout of the container  
+10. Establish the SSH tunnel to the VM  
    * Install autossh http://linux.die.net/man/1/autossh. Available through macports for OSX.  
    * Run ```dm-nb-tunnel \<instance name\>``` to establish the tunnel. The tunnel will automatically restart as you disconnect and reconnect your local machine to networks.  
 

@@ -12,7 +12,7 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
 RUN /opt/conda/bin/conda update --yes anaconda && /opt/conda/bin/conda install --yes seaborn
 
 ENV PATH /opt/conda/bin:$PATH
-RUN pip install -U line-profiler memory_profiler
+RUN pip install -U ggplot line-profiler memory_profiler
 
 # http://bugs.python.org/issue19846
 # > At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.

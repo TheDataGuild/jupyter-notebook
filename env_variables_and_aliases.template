@@ -16,3 +16,7 @@ dm-nb-tunnel() {
 docker-nb() {
     docker run -d -p 8888:8888 -e "PASSWORD=$1" -v /data:/notebooks jupyter-notebook-py
 }
+
+docker-nb-ssh() {
+    name=$(docker ps -l | grep "jupyter-notebook-py" | awk '{split($0,a," "); print $NF}') ; docker exec -it $name bash
+}

@@ -9,7 +9,8 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     /bin/bash /Anaconda-2.3.0-Linux-x86_64.sh -b -p /opt/conda && \
     rm /Anaconda-2.3.0-Linux-x86_64.sh && \
     /opt/conda/bin/conda install --yes conda==3.14.1
-RUN /opt/conda/bin/conda update --yes anaconda && /opt/conda/bin/conda install --yes seaborn
+RUN /opt/conda/bin/conda update --yes anaconda && /opt/conda/bin/conda install --yes seaborn && \
+    /opt/conda/bin/conda update --yes numpy
 
 ENV PATH /opt/conda/bin:$PATH
 RUN pip install -U ggplot line-profiler memory_profiler

@@ -5,16 +5,16 @@ MAINTAINER Chris Diehl <chris@thedataguild.com>
 RUN apt-get update && apt-get install -y wget bzip2 ca-certificates \
     libglib2.0-0 libxext6 libsm6 libxrender1 emacs24 gcc unzip
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
-    wget --quiet https://repo.continuum.io/archive/Anaconda-2.3.0-Linux-x86_64.sh && \
-    /bin/bash /Anaconda-2.3.0-Linux-x86_64.sh -b -p /opt/conda && \
-    rm /Anaconda-2.3.0-Linux-x86_64.sh && \
-    /opt/conda/bin/conda install --yes conda==3.14.1
+    wget --quiet https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.4.0-Linux-x86_64.sh && \
+    /bin/bash /Anaconda2-2.4.0-Linux-x86_64.sh -b -p /opt/conda && \
+    rm /Anaconda2-2.4.0-Linux-x86_64.sh && \
+    /opt/conda/bin/conda install --yes conda==3.18.3
 RUN /opt/conda/bin/conda update --yes anaconda && /opt/conda/bin/conda install --yes seaborn && \
     /opt/conda/bin/conda update --yes numpy && /opt/conda/bin/conda update --yes scipy
 
 ENV PATH /opt/conda/bin:$PATH
 ADD constraints.txt /
-RUN pip install -U -c /constraints.txt ggplot line-profiler memory_profiler
+RUN pip install -U line-profiler memory_profiler
 
 # http://bugs.python.org/issue19846
 # > At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.

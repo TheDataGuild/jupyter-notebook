@@ -7,16 +7,13 @@ export AWS_SECURITY_GROUP=docker-machine
 export AWS_EBS_VOL=<EBS volume ID>
 
 alias dm=docker-machine
-dm-env() {
-    eval "$(docker-machine env $1)"
-}
+
 dm-nb-tunnel() {
     ssh -f -i ~/.docker/machine/machines/$1/id_rsa -N -L 8888:localhost:8888 ubuntu@$(docker-machine ip $1)
 }
 docker-nb() {
     docker run -d -p 8888:8888 -e "PASSWORD=$1" -v /data:/notebooks jupyter-notebook-py
 }
-
 docker-nb-ssh() {
     name=$(docker ps -l | grep "jupyter-notebook-py" | awk '{split($0,a," "); print $NF}') ; docker exec -it $name bash
 }

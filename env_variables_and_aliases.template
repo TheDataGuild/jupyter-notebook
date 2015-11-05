@@ -8,6 +8,9 @@ export AWS_EBS_VOL=<EBS volume ID>
 
 alias dm=docker-machine
 
+dm-env() {
+    eval "$(docker-machine env $1)"
+}
 dm-nb-tunnel() {
     ssh -f -i ~/.docker/machine/machines/$1/id_rsa -N -L 8888:localhost:8888 ubuntu@$(docker-machine ip $1)
 }

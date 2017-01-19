@@ -16,18 +16,14 @@ The following instructions are for OSX/Linux systems.
 5. Create an AWS instance
    * Run ```source configure_ec2_instance.sh \<instance name\>``` on your local machine to launch a VM on AWS  
 6. Build the Docker container  
-   * Run ```docker build -t jupyter-notebook-py .``` on your local machine in the container subdirectory within the cloned repository  
-7. Attach the EBS volume to the VM  
-   * Run ```docker-machine ssh \<instance name\>``` to SSH into the VM  
-   * Run ```source config_ebs_vol.sh``` on the VM to mount the EBS volume   
-   * Logout of the VM  
-8. Run the notebook container  
+   * Run ```docker build -t jupyter-notebook-py .``` on your local machine in the container subdirectory within the cloned repository   
+7. Run the notebook container  
    * Run ```docker-nb \<notebook password\>``` on your local machine  
-9. Configure Jupyter notebook extensions
+8. Configure Jupyter notebook extensions
    * Run ```docker-nb-ssh``` to SSH into the running container  
    * Run ```source ipython_config/ipy_final_config.sh``` to configure the extensions  
    * Logout of the container  
-10. Establish the SSH tunnel to the VM  
+9. Establish the SSH tunnel to the VM  
    * Run ```dm-nb-tunnel \<instance name\>``` to establish the tunnel. The tunnel will automatically restart as you disconnect and reconnect your local machine to networks.  
 
 ### Helpful Commands  

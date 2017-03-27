@@ -3,6 +3,7 @@ export AWS_SECRET_ACCESS_KEY=<secret access key>
 export AWS_VPC_ID=<VPC ID>
 export AWS_AMI_ID=<AMI ID>
 export AWS_INSTANCE_TYPE=<instance type - ex: c3.8xlarge>
+export AWS_ROOT_SIZE=<size of root volume in gigabytes>
 export AWS_DEFAULT_REGION=<AWS region - ex: us-west-2>
 export AWS_SECURITY_GROUP=docker-machine
 
@@ -15,7 +16,7 @@ dm-nb-tunnel() {
     ssh -f -i ~/.docker/machine/machines/$1/id_rsa -N -L 8888:localhost:8888 ubuntu@$(docker-machine ip $1)
 }
 docker-nb() {
-    docker run -d -p 8888:8888 -e "PASSWORD=$1" -v /data:/notebooks jupyter-notebook
+    docker run -d -p 8888:8888 -e "PASSWORD=$1" -v /data:/data jupyter-notebook
 }
 docker-nb-ssh() {
     name=$(docker ps -l | grep "jupyter-notebook" | awk '{split($0,a," "); print $NF}') ; docker exec -it $name bash

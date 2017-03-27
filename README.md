@@ -1,5 +1,5 @@
-# docker-jupyter-notebook
-Files for building the Guild Jupyter notebook Docker container and deploying the container on AWS. 
+# jupyter-notebook
+Files for building the Guild Jupyter notebook Docker image and deploying the image on AWS. 
 
 ### Deployment Instructions
 The following instructions are for OSX/Linux systems.  
@@ -15,8 +15,8 @@ The following instructions are for OSX/Linux systems.
    * SSH inbound, All traffic outbound
 5. Create an AWS instance
    * Run ```source configure_ec2_instance.sh \<instance name\>``` on your local machine to launch a VM on AWS  
-6. Build the Docker container  
-   * Run ```docker build -t jupyter-notebook-py .``` on your local machine in the container subdirectory within the cloned repository   
+6. Build the Docker image
+   * Run ```docker build -t jupyter-notebook .``` on your local machine in the container subdirectory within the cloned repository   
 7. Run the notebook container  
    * Run ```docker-nb \<notebook password\>``` on your local machine  
 8. Configure Jupyter notebook extensions
@@ -24,7 +24,7 @@ The following instructions are for OSX/Linux systems.
    * Run ```source ipython_config/ipy_final_config.sh``` to configure the extensions  
    * Logout of the container  
 9. Establish the SSH tunnel to the VM  
-   * Run ```dm-nb-tunnel \<instance name\>``` to establish the tunnel. The tunnel will automatically restart as you disconnect and reconnect your local machine to networks.  
+   * Run ```dm-nb-tunnel \<instance name\>``` to establish the tunnel
 
 ### Helpful Commands  
 ```dm```:                         Command list for docker-machine  

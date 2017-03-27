@@ -1,4 +1,4 @@
-# docker-jupyter-notebook-py
+# docker-jupyter-notebook
 Files for building the Guild Jupyter notebook Docker container and deploying the container on AWS. 
 
 ### Deployment Instructions

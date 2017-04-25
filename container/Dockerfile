@@ -14,7 +14,9 @@ RUN conda update --yes anaconda && \
     conda update --yes numpy && /opt/conda/bin/conda update --yes scipy
 RUN conda install -c conda-forge line_profiler=2.0
 
-RUN pip install -U pip memory_profiler
+RUN pip install -U pip memory_profiler nbdime
+
+RUN nbdime config-git --enable --global
 
 # http://bugs.python.org/issue19846
 # > At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.

@@ -14,17 +14,14 @@ The following instructions are for OSX/Linux systems.
 4. Through the AWS console, define the AWS security group "docker-machine"  
    * SSH inbound, All traffic outbound
 5. Create an AWS instance
-   * Run ```source configure_ec2_instance.sh \<instance name\>``` on your local machine to launch a VM on AWS  
+   * Run ```source launch_instance.sh \<instance name\>``` on your local machine
 6. Build the Docker image
-   * Run ```docker build -t jupyter-notebook .``` on your local machine in the container subdirectory within the cloned repository   
+   * Run ```docker build -t jupyter-notebook container/``` on your local machine
 7. Run the notebook container  
-   * Run ```docker-nb \<notebook password\>``` on your local machine  
-8. Configure Jupyter notebook extensions
-   * Run ```docker-nb-ssh``` to SSH into the running container  
-   * Run ```source ipython_config/ipy_final_config.sh``` to configure the extensions  
-   * Logout of the container  
-9. Establish the SSH tunnel to the VM  
+   * Run ```docker-nb``` on your local machine
+8. Establish the SSH tunnel to the VM  
    * Run ```dm-nb-tunnel \<instance name\>``` to establish the tunnel
+9. Open ```https://localhost:8888``` in a web browser.
 
 ### Helpful Commands  
 ```dm```:                         Command list for docker-machine  

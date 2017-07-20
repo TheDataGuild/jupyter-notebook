@@ -8,7 +8,5 @@ docker-machine create --driver amazonec2 \
           --amazonec2-root-size $AWS_ROOT_SIZE \
           --amazonec2-security-group $AWS_SECURITY_GROUP $1
 eval "$(docker-machine env $1)"
-docker-machine scp final_config.sh $1:final_config.sh
-docker-machine ssh $1 "source final_config.sh"
-docker-machine ssh $1 "rm final_config.sh"
-docker-machine scp -r ipython_config/ $1:/data/ipython_config/
+docker-machine ssh $1 "sudo mkdir -p /work"
+docker-machine ssh $1 "sudo chmod 777 /work"

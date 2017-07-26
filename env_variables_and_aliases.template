@@ -6,7 +6,6 @@ export AWS_INSTANCE_TYPE=<instance type - ex: c3.8xlarge>
 export AWS_ROOT_SIZE=<size of root volume in gigabytes>
 export AWS_DEFAULT_REGION=<AWS region - ex: us-west-2>
 export AWS_SECURITY_GROUP=docker-machine
-export NOTEBOOK_HASHED_PWD=<hashed password created with IPython.lib.passwd()>
 
 alias dm=docker-machine
 
@@ -17,7 +16,7 @@ dm-nb-tunnel() {
     ssh -f -i ~/.docker/machine/machines/$1/id_rsa -N -L 8888:localhost:8888 ubuntu@$(docker-machine ip $1)
 }
 docker-nb() {
-    docker run -d -p 8888:8888 -e GEN_CERT=yes -e GRANT_SUDO=yes -u root -v /work:/home/jovyan/work jupyter-notebook start-notebook.sh --NotebookApp.password=$NOTEBOOK_HASHED_PWD
+    docker run -it -d -p 8888:8888 -v /data:/data jupyter-notebook
 }
 docker-nb-ssh() {
     name=$(docker ps -l | grep "jupyter-notebook" | awk '{split($0,a," "); print $NF}') ; docker exec -it $name bash

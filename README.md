@@ -15,13 +15,14 @@ The following instructions are for OSX/Linux systems.
    * SSH inbound, All traffic outbound
 5. Create an AWS instance
    * Run ```source launch_instance.sh \<instance name\>``` on your local machine
-6. Build the Docker image
+6. Modify the hashed notebook password in the Dockerfile as necessary
+7. Build the Docker image
    * Run ```docker build -t jupyter-notebook container/``` on your local machine
-7. Run the notebook container  
+8. Run the notebook container  
    * Run ```docker-nb``` on your local machine
-8. Establish the SSH tunnel to the VM  
+9. Establish the SSH tunnel to the VM  
    * Run ```dm-nb-tunnel \<instance name\>``` to establish the tunnel
-9. Open ```https://localhost:8888``` in a web browser.
+10. Open ```http://localhost:8888``` in a web browser.
 
 ### Helpful Commands  
 ```dm```:                         Command list for docker-machine  

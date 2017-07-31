@@ -12,7 +12,7 @@ The following instructions are for OSX/Linux systems.
    ```
    and edit env_variables_and_aliases to define the environment variables and aliases. Source this file in your local shell.  
 4. Through the AWS console, define the AWS security group "docker-machine"  
-   * SSH inbound, All traffic outbound
+   * SSH inbound, Port 2376 inbound, All traffic outbound
 5. Create an AWS instance
    * Run ```source launch_instance.sh \<instance name\>``` on your local machine
 6. Modify the hashed notebook password in the Dockerfile as necessary

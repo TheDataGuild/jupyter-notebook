@@ -5,9 +5,9 @@ MAINTAINER Chris Diehl <chris@thedataguild.com>
 RUN apt-get update && apt-get install -y wget bzip2 emacs24 gcc g++ git unzip
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
-    wget --quiet https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh && \
-    /bin/bash /Anaconda3-4.4.0-Linux-x86_64.sh  -b -p /opt/anaconda && \
-    rm /Anaconda3-4.4.0-Linux-x86_64.sh 
+    wget --quiet https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh && \
+    /bin/bash /Anaconda2-4.4.0-Linux-x86_64.sh  -b -p /opt/anaconda && \
+    rm /Anaconda2-4.4.0-Linux-x86_64.sh 
 ENV PATH /opt/anaconda/bin:$PATH
 
 RUN conda install -c conda-forge line_profiler
